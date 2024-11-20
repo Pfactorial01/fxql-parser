@@ -10,15 +10,19 @@ export class FxqlStatementsService {
     const res = await this.databaseService.entry.createManyAndReturn({
       data: createEntryDto.map((item) => item),
     });
-    return res.map((item) => {
-      return {
-        EntryId: item.id,
-        SourceCurrency: item.source_currency,
-        DestinationCurrency: item.destination_currency,
-        SellPrice: item.sell_price,
-        BuyPrice: item.buy_price,
-        CapAmount: item.cap_amount,
-      };
-    });
+    return {
+      message: 'FXQL Statement Parsed Successfully.',
+      code: 'FXQL-200',
+      data: res.map((item) => {
+        return {
+          EntryId: item.id,
+          SourceCurrency: item.source_currency,
+          DestinationCurrency: item.destination_currency,
+          SellPrice: item.sell_price,
+          BuyPrice: item.buy_price,
+          CapAmount: item.cap_amount,
+        };
+      }),
+    };
   }
 }
