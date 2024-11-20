@@ -10,6 +10,19 @@ export class SubmitFXQLStatementDto {
   FXQL: string;
 }
 
+export class RateLimitDto {
+  @ApiProperty({
+    description: 'reason for error',
+    example: 'ThrottlerException: Too Many Requests',
+  })
+  message: string;
+  @ApiProperty({
+    description: 'status code',
+    example: 429,
+  })
+  statusCode: number;
+}
+
 export class SuccesfulResponseDto {
   @ApiProperty({
     description: 'description of result',

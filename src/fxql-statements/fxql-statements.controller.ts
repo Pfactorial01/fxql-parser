@@ -21,6 +21,7 @@ import {
   SuccesfulResponseDto,
   BadRequestResponseDto,
   SubmitFXQLStatementDto,
+  RateLimitDto,
 } from './dto/fxql-statement.dto';
 
 @Controller('fxql-statements')
@@ -44,6 +45,11 @@ export class FxqlStatementsController {
   @ApiBadRequestResponse({
     description: 'Error occured while parsing data',
     type: BadRequestResponseDto,
+  })
+  @ApiResponse({
+    status: 429,
+    description: 'Too many requests',
+    type: RateLimitDto,
   })
   @UsePipes(ValidationPipe)
   createEntry(
