@@ -76,6 +76,10 @@ export const validateBuyLine = (
       return value;
     }
   }
+  throw new BadRequestException({
+    message: `Buy line afer line ${index} is missing or malformed`,
+    code: 'FXQL-400',
+  });
 };
 
 export const validateSellLine = (
@@ -114,6 +118,10 @@ export const validateSellLine = (
       return value;
     }
   }
+  throw new BadRequestException({
+    message: `Sell line afer line ${index} is missing or malformed`,
+    code: 'FXQL-400',
+  });
 };
 
 export const validateCapLine = (
@@ -153,4 +161,8 @@ export const validateCapLine = (
       return parseInt(value);
     }
   }
+  throw new BadRequestException({
+    message: `Cap amount line afer line ${index} is missing or malformed`,
+    code: 'FXQL-400',
+  });
 };

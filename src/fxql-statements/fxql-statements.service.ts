@@ -18,8 +18,8 @@ export class FxqlStatementsService {
           EntryId: item.id,
           SourceCurrency: item.source_currency,
           DestinationCurrency: item.destination_currency,
-          SellPrice: item.sell_price,
-          BuyPrice: item.buy_price,
+          SellPrice: Number(item.sell_price),
+          BuyPrice: Number(item.buy_price),
           CapAmount: item.cap_amount,
         };
       }),

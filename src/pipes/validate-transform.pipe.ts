@@ -9,7 +9,7 @@ import {
 
 @Injectable()
 export class IsValidFXQLPipe implements PipeTransform {
-  transform(value: { FXQL: string | undefined }): Prisma.EntryCreateInput[] {
+  transform(value: { FXQL?: string | undefined }): Prisma.EntryCreateInput[] {
     if (value?.FXQL === undefined) {
       throw new BadRequestException({
         message: "'FXQL' key not found inside request body",
@@ -21,7 +21,6 @@ export class IsValidFXQLPipe implements PipeTransform {
 
     // Split the FXQL statements into individual lines
     const lines = fxqlStatement.split('\\n');
-
     const TotalNumberOfLines = 1000 * 5;
     if (lines.length > TotalNumberOfLines) {
       throw new BadRequestException({
