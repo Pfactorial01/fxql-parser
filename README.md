@@ -8,8 +8,7 @@ Run the following command:
 npm install
 ```
 
-Create env file using sample
-Environment varaibles needed: DATABASE_URL, PORT
+Environment varaibles needed: DATABASE_URL (postgres), PORT
 
 Then run dev server
 
@@ -41,7 +40,7 @@ https://fxql-parser.onrender.com/api
 or
 
 ```sh
-https://localhost:<PORT>/api
+http://localhost:<PORT>/api
 ```
 
 ## Requirements
